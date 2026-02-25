@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.busticket.controller.AdminLoginController"
+      styleClass="root-pane" alignment="CENTER" spacing="0">
+
+    <VBox styleClass="form-card" spacing="20" maxWidth="400" alignment="CENTER">
+        <Text text="🔐" style="-fx-font-size: 48;"/>
+        <Text text="Admin Login" styleClass="form-heading"/>
+
+        <VBox spacing="6" maxWidth="340">
+            <Label text="Username" styleClass="field-label"/>
+            <TextField fx:id="usernameField" promptText="admin"
+                       styleClass="text-field"/>
+        </VBox>
+
+        <VBox spacing="6" maxWidth="340">
+            <Label text="Password" styleClass="field-label"/>
+            <PasswordField fx:id="passwordField" promptText="••••••••"
+                           styleClass="text-field"/>
+        </VBox>
+
+        <Label fx:id="errorLabel" text="" styleClass="error-label"/>
+
+        <Button text="Login →" styleClass="btn-primary" onAction="#onLogin"
+                maxWidth="340" style="-fx-padding: 12;"/>
+
+        <Button text="← Back to Home" styleClass="btn-text" onAction="#onBack"/>
+
+    </VBox>
+
+</VBox>

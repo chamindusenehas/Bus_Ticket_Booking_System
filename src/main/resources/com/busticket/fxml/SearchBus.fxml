@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.busticket.controller.SearchBusController"
+      styleClass="root-pane" spacing="0">
+
+    <HBox styleClass="top-bar" alignment="CENTER_LEFT" spacing="16">
+        <Button text="← Back" styleClass="btn-back" onAction="#onBack"/>
+        <Text text="Search Buses" styleClass="screen-title"/>
+    </HBox>
+
+    <HBox spacing="20" alignment="CENTER"
+          style="-fx-padding: 28 40 20 40; -fx-background-color: #f8fafc;">
+        <VBox spacing="6">
+            <Label text="From" styleClass="field-label"/>
+            <ComboBox fx:id="sourceCombo" promptText="Select Source"
+                      styleClass="combo-field" prefWidth="200"/>
+        </VBox>
+        <VBox spacing="6">
+            <Label text="To" styleClass="field-label"/>
+            <ComboBox fx:id="destCombo" promptText="Select Destination"
+                      styleClass="combo-field" prefWidth="200"/>
+        </VBox>
+        <VBox spacing="6">
+            <Label text="Travel Date" styleClass="field-label"/>
+            <DatePicker fx:id="datePicker" styleClass="combo-field" prefWidth="180"/>
+        </VBox>
+        <VBox spacing="6">
+            <Label text=" " styleClass="field-label"/>
+            <Button fx:id="searchBtn" text="Search 🔍" styleClass="btn-primary"
+                    onAction="#onSearch" prefWidth="120"/>
+        </VBox>
+    </HBox>
+
+    <Label fx:id="statusLabel" text="Enter search criteria above."
+           styleClass="status-label" style="-fx-padding: 0 40 8 40;"/>
+
+    <TableView fx:id="busTable" VBox.vgrow="ALWAYS"
+               style="-fx-padding: 0 40 0 40;">
+        <columns>
+            <TableColumn fx:id="colBusName"   text="Bus Name"     prefWidth="220"/>
+            <TableColumn fx:id="colDeparture" text="Departure"    prefWidth="120"/>
+            <TableColumn fx:id="colAvailable" text="Avail. Seats" prefWidth="120"/>
+            <TableColumn fx:id="colFare"      text="Fare"         prefWidth="100"/>
+        </columns>
+        <placeholder><Label text="No buses found. Try a different search." styleClass="placeholder-label"/></placeholder>
+    </TableView>
+
+    <HBox alignment="CENTER_RIGHT" style="-fx-padding: 16 40 24 40;" spacing="12">
+        <Button fx:id="selectBtn" text="Book a Seat"
+                styleClass="btn-primary" onAction="#onSelectBus" prefWidth="220"/>
+    </HBox>
+
+</VBox>

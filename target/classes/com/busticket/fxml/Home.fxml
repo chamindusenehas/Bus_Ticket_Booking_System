@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.busticket.controller.HomeController"
+      styleClass="root-pane"
+      alignment="CENTER" spacing="0">
+
+    <VBox styleClass="header" alignment="CENTER" spacing="8">
+        <Text text="🚌" styleClass="hero-icon"/>
+        <Text text="Bus Ticket Reservation" styleClass="title-text"/>
+        <Text text="Book your journey with ease" styleClass="subtitle-text"/>
+    </VBox>
+
+    <HBox alignment="CENTER" spacing="24" style="-fx-padding: 48 60 48 60;">
+
+        <VBox styleClass="card" alignment="CENTER" spacing="16">
+            <Text text="🔍" styleClass="card-icon"/>
+            <Text text="Search &amp; Book" styleClass="card-title"/>
+            <Text text="Find available buses on your route and reserve a seat instantly."
+                  styleClass="card-desc" wrappingWidth="200" textAlignment="CENTER"/>
+            <Button text="Search Buses" styleClass="btn-primary"
+                    onAction="#onSearchBus" prefWidth="160"/>
+        </VBox>
+
+        <VBox styleClass="card" alignment="CENTER" spacing="16">
+            <Text text="❌" styleClass="card-icon"/>
+            <Text text="Cancel Ticket" styleClass="card-title"/>
+            <Text text="Cancel an existing booking using your unique Booking ID."
+                  styleClass="card-desc" wrappingWidth="200" textAlignment="CENTER"/>
+            <Button text="Cancel Booking" styleClass="btn-outline"
+                    onAction="#onCancelTicket" prefWidth="160"/>
+        </VBox>
+
+        <VBox styleClass="card" alignment="CENTER" spacing="16">
+            <Text text="🔐" styleClass="card-icon"/>
+            <Text text="Admin Panel" styleClass="card-title"/>
+            <Text text="Manage buses, routes, and view all booking records."
+                  styleClass="card-desc" wrappingWidth="200" textAlignment="CENTER"/>
+            <Button text="Admin Login" styleClass="btn-outline"
+                    onAction="#onAdminLogin" prefWidth="160"/>
+        </VBox>
+
+    </HBox>
+
+    <HBox styleClass="footer" alignment="CENTER">
+        <Text text="© 2026 Bus Ticket Management System" styleClass="footer-text"/>
+    </HBox>
+
+</VBox>

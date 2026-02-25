@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.busticket.controller.AdminPanelController"
+      styleClass="root-pane" spacing="0">
+
+    <HBox styleClass="top-bar" alignment="CENTER_LEFT" spacing="16">
+        <Text text="⚙ Admin Panel" styleClass="screen-title" HBox.hgrow="ALWAYS"/>
+        <Button text="Logout" styleClass="btn-back" onAction="#onLogout"/>
+    </HBox>
+
+    <TabPane VBox.vgrow="ALWAYS" styleClass="admin-tabs" tabClosingPolicy="UNAVAILABLE">
+
+        <Tab text="  ➕  Add New Bus  ">
+            <ScrollPane fitToWidth="true">
+                <VBox alignment="CENTER" style="-fx-padding: 40 0;">
+                    <VBox styleClass="form-card" spacing="18" maxWidth="560">
+                        <Text text="Add New Bus" styleClass="form-heading"/>
+
+                        <GridPane hgap="20" vgap="14">
+
+                            <Label text="Bus ID *" styleClass="field-label"
+                                   GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+                            <TextField fx:id="busIdField" promptText="e.g. BUS006"
+                                       styleClass="text-field"
+                                       GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+
+                            <Label text="Bus Name *" styleClass="field-label"
+                                   GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+                            <TextField fx:id="busNameField" promptText="e.g. Royal Cruiser"
+                                       styleClass="text-field"
+                                       GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+                            <Label text="Total Seats *" styleClass="field-label"
+                                   GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+                            <TextField fx:id="seatsField" promptText="e.g. 40"
+                                       styleClass="text-field"
+                                       GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+
+                            <Label text="Fare (Rs) *" styleClass="field-label"
+                                   GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+                            <TextField fx:id="fareField" promptText="e.g. 450"
+                                       styleClass="text-field"
+                                       GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+
+                            <Label text="Source City *" styleClass="field-label"
+                                   GridPane.rowIndex="4" GridPane.columnIndex="0"/>
+                            <TextField fx:id="sourceField" promptText="e.g. Mumbai"
+                                       styleClass="text-field"
+                                       GridPane.rowIndex="5" GridPane.columnIndex="0"/>
+
+                            <Label text="Destination City *" styleClass="field-label"
+                                   GridPane.rowIndex="4" GridPane.columnIndex="1"/>
+                            <TextField fx:id="destinationField" promptText="e.g. Surat"
+                                       styleClass="text-field"
+                                       GridPane.rowIndex="5" GridPane.columnIndex="1"/>
+
+                            <Label text="Distance (km) *" styleClass="field-label"
+                                   GridPane.rowIndex="6" GridPane.columnIndex="0"/>
+                            <TextField fx:id="distanceField" promptText="e.g. 280"
+                                       styleClass="text-field"
+                                       GridPane.rowIndex="7" GridPane.columnIndex="0"/>
+
+                            <Label text="Departure Time (HH:mm) *" styleClass="field-label"
+                                   GridPane.rowIndex="6" GridPane.columnIndex="1"/>
+                            <TextField fx:id="departureField" promptText="e.g. 08:30"
+                                       styleClass="text-field"
+                                       GridPane.rowIndex="7" GridPane.columnIndex="1"/>
+                        </GridPane>
+
+                        <Button text="➕  Add Bus" styleClass="btn-primary"
+                                onAction="#onAddBus" maxWidth="Infinity"
+                                style="-fx-padding: 13;"/>
+                    </VBox>
+                </VBox>
+            </ScrollPane>
+        </Tab>
+
+        <Tab text="  View All Bookings  ">
+            <VBox spacing="0">
+                <HBox alignment="CENTER_RIGHT" style="-fx-padding: 12 20 12 20;">
+                    <Button text="🔄 Refresh" styleClass="btn-outline"
+                            onAction="#onRefreshBookings"/>
+                </HBox>
+                <TableView fx:id="bookingTable" VBox.vgrow="ALWAYS">
+                    <columns>
+                        <TableColumn fx:id="colId"        text="Booking ID"   prefWidth="150"/>
+                        <TableColumn fx:id="colPassenger" text="Passenger"    prefWidth="150"/>
+                        <TableColumn fx:id="colBus"       text="Bus"          prefWidth="160"/>
+                        <TableColumn fx:id="colRoute"     text="Route"        prefWidth="180"/>
+                        <TableColumn fx:id="colSeat"      text="Seat"         prefWidth="70"/>
+                        <TableColumn fx:id="colDate"      text="Date"         prefWidth="120"/>
+                        <TableColumn fx:id="colStatus"    text="Status"       prefWidth="100"/>
+                    </columns>
+                    <placeholder>
+                        <Label text="No bookings yet." styleClass="placeholder-label"/>
+                    </placeholder>
+                </TableView>
+            </VBox>
+        </Tab>
+
+    </TabPane>
+</VBox>
