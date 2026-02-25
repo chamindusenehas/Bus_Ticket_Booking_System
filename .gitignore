@@ -54,3 +54,27 @@ $RECYCLE.BIN/
 # ── Logs ──────────────────────────────────────────────────────
 *.log
 logs/
+
+/target/
+*.class
+*.jar
+
+# IDE
+/.idea/
+/*.iml
+*.iws
+/out/
+
+# OS files
+.DS_Store
+Thumbs.db
+Desktop.ini
+*~
+
+# Logs
+*.log
+logs/
+
+# Environment
+*.env
+*.local
